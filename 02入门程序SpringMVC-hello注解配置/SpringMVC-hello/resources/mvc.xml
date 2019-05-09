@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+    <!-- IoC注解解析器 -->
+    <context:component-scan base-package="code"/>
+    <!-- mvc注解解析器 -->
+    <mvc:annotation-driven/>
+    <!-- mvc注解解析器会自动去注册RequestMappingHandler,RequestMappingHandlerAdapter,ExceptionHandlerExceptionResolver三个bean。
+    	 除此之外，SpringMVC中几乎所有的注解，都需要该注解解析器来解析。
+     -->
+    
+    <!-- 处理静态资源文件请求 -->
+    <mvc:default-servlet-handler/>
+    
+    <!-- 资源映射 -->
+    <mvc:resources location="/" mapping="/**"/>
+    
+</beans>
